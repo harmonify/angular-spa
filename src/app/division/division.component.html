@@ -1,5 +1,6 @@
 <div class="container-fluid">
   <h4 class="mb-3">Divisions</h4>
+  <a class="btn btn-primary mb-3" [routerLink]="['create']">Create a New Division</a>
   <div class="table-responsive bg-white" style="max-width: 90%">
     <table class="table table-borderless table-hover table-head-fixed text-nowrap">
       <thead>
@@ -7,6 +8,7 @@
           <th>ID</th>
           <th>Name</th>
           <th>Description</th>
+          <th>Actions</th>
         </tr>
       </thead>
       <tbody *ngFor="let currentDivision of divisions; let i = index">
@@ -14,6 +16,11 @@
           <td>{{ currentDivision._id }}</td>
           <td>{{ currentDivision.name }}</td>
           <td>{{ currentDivision.description }}</td>
+          <td>
+            <!-- <a class="btn btn-outline-primary btn-sm" [routerLink]="['/division/' + currentDivision._id]">Show</a> -->
+            <a class="btn btn-outline-warning btn-sm" [routerLink]="['/division/' + currentDivision._id + '/edit']">Edit</a>
+            <button class="btn btn-outline-danger btn-sm" (click)="deleteDivision(currentDivision)">Delete</button>
+          </td>
         </tr>
       </tbody>
     </table>

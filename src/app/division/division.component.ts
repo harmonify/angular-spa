@@ -17,15 +17,33 @@ export class DivisionComponent implements OnInit {
     this.retrieveDivision();
   }
 
+  ngOnDestroy(): void {
+    this.currentDivision = {};
+  }
+
   retrieveDivision(): void {
     this.divisionService.getAll().subscribe(
       (data) => {
         this.divisions = data;
-        console.log(data);
+        console.table(data);
       },
       (error) => {
-        console.log(error);
+        console.error(error);
       }
     );
+  }
+
+  deleteDivision(division: Division): void {
+    if (confirm('Are you sure?') && division._id !== undefined) {
+      this.divisionService.delete(division._id).subscribe(
+        (data) => {
+          console.log(data);
+          this.retrieveDivision();
+        },
+        (error) => {
+          console.error(error);
+        }
+      );
+    }
   }
 }

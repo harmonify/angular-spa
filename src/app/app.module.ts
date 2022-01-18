@@ -15,6 +15,8 @@ import { AppPreloaderComponent } from './app-preloader/app-preloader.component';
 import { HomeComponent } from './home/home.component';
 import { DivisionComponent } from './division/division.component';
 import { OtherComponent } from './other/other.component';
+import { DivisionEditComponent } from './division/division-edit/division-edit.component';
+import { DivisionCreateComponent } from './division/division-create/division-create.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +31,8 @@ import { OtherComponent } from './other/other.component';
     HomeComponent,
     DivisionComponent,
     OtherComponent,
+    DivisionEditComponent,
+    DivisionCreateComponent,
   ],
   imports: [
     BrowserModule,

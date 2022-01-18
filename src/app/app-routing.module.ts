@@ -1,5 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { DivisionCreateComponent } from './division/division-create/division-create.component';
+import { DivisionEditComponent } from './division/division-edit/division-edit.component';
 import { DivisionComponent } from './division/division.component';
 import { HomeComponent } from './home/home.component';
 import { OtherComponent } from './other/other.component';
@@ -14,10 +16,36 @@ const routes: Routes = [
   },
   {
     path: 'division',
-    component: DivisionComponent,
     data: {
       breadcrumb: 'Division',
     },
+    children: [
+      {
+        path: '',
+        component: DivisionComponent,
+      },
+      {
+        path: 'create',
+        component: DivisionCreateComponent,
+        data: {
+          breadcrumb: 'Create',
+        },
+      },
+      // {
+      //   path: ':id',
+      //   component: DivisionShowComponent,
+      //   data: {
+      //     breadcrumb: 'Division',
+      //   },
+      // },
+      {
+        path: ':id/edit',
+        component: DivisionEditComponent,
+        data: {
+          breadcrumb: 'Edit Division',
+        },
+      },
+    ],
   },
   {
     path: 'other',
