@@ -42,7 +42,7 @@ const routes: Routes = [
         path: ':id/edit',
         component: DivisionEditComponent,
         data: {
-          breadcrumb: 'Edit Division',
+          breadcrumb: 'Edit',
         },
       },
     ],
